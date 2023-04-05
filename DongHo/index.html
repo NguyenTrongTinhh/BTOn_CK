@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=Edge" />
+    <title>Stopwatch</title>
+    <style>
+    #center {
+     margin: 10%  25%;
+     font-family: tahoma;
+     }
+    .stopwatch {
+         border:1px solid #000;
+         border-radius: 10px;
+         background-color: aliceblue;
+         text-align: center;
+         width:630px;
+         height: 250px;
+         overflow: hidden;
+     }
+     .stopwatch span{
+         display: block;
+         font-size: 100px;
+     }
+     .stopwatch p{
+         display: inline-block;
+         font-size: 40px;
+         margin-right: 15px;
+     }
+     .stopwatch a{
+       font-size:45px;
+     }
+     a:link,
+     a:visited{
+         color :#000;
+         text-decoration: none;
+         padding: 12px 14px;
+         margin-right: 10px;
+         border-radius: 5px;
+         border: 1px solid #000;
+         background-color:  rgba(0, 255, 255, 0.201);
+     }
+    </style>
+  </head>
+  <body>
+      <div id="center">
+            <div class="timer stopwatch"></div>
+      </div>
+
+    <script>
+      const Stopwatch = function(elem, options) {
+        let timer = createTimer(),
+          startButton = createButton("Start", start),
+          stopButton = createButton("Stop", stop),
+          resetButton = createButton("Reset", reset),
+          offset,
+          clock,
+          interval,
+          hrs = 0,
+          min = 0;
+
+        options = options || {};
+        options.delay = options.delay || 1;
+
+        // append elements
+        elem.appendChild(timer);
+        elem.appendChild(startButton);
+        elem.appendChild(stopButton);
+        elem.appendChild(resetButton);
+
+        reset();
+
+        function createTimer() {
+          return document.createElement("span");
+        }
+
+        function createButton(action, handler) {
+          if (action !== "reset") {
+            let a = document.createElement("a");
+            a.href = "#" + action;
+            a.innerHTML = action;
+            a.addEventListener("click", function(event) {
+              handler();
+              event.preventDefault();
+            });
+            return a;
+          } else if (action === "reset") {
+            let a = document.createElement("a");
+            a.href = "#" + action;
+            a.innerHTML = action;
+            a.addEventListener("click", function(event) {
+              clean();
+              event.preventDefault();
+            });
+            return a;
+          }
+        }
+
+        function start() {
+          if (!interval) {
+            offset = Date.now();
+            interval = setInterval(update, options.delay);
+          }
+        }
+
+        function stop() {
+          if (interval) {
+            clearInterval(interval);
+            interval = null;
+          }
+        }
+
+        function reset() {
+          clock = 0;
+          render(0);
+        }
+
+        function clean() {
+          min = 0;
+          hrs = 0;
+          clock = 0;
+          render(0);
+        }
+
+        function update() {
+          clock += delta();
+          render();
+        }
+
+        function render() {
+          if (Math.floor(clock / 1000) === 60) {
+            min++;
+            reset();
+            if (min === 60) {
+              min = 0;
+              hrs++;
+            }
+          }
+          timer.innerHTML =
+            hrs + "<p>hrs</p>" + min + "<p>min</p>" + Math.floor(clock / 1000)+ "<p>sec</p>";
+        }
+
+        function delta() {
+          var now = Date.now(),
+            d = now - offset;
+
+          offset = now;
+          return d;
+        }
+      };
+
+      var elems = document.getElementsByClassName("timer");
+
+      for (var i = 0, len = elems.length; i < len; i++) {
+        new Stopwatch(elems[i]);
+      }
+    </script>
+  </body>
+</html>
