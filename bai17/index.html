@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bai17/bootstrap-4.6.1-dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+    .container{
+        width: 650px;
+        height: auto;
+        border: 1px solid rgba(0, 0, 0, 0.235);
+        margin-top: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.313);
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h1>ĐĂNG KÍ TÀI KHOẢN</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Tên đăng nhập:</p>
+            </div>
+            <div class="col-sm-8 ">
+               <input type="text" placeholder="Nhập vào tên đăng nhập" style="width: 420px;">
+            </div>
+            <div class="col-sm-1">
+                <span style="color: red;">*</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Mật khẩu:</p>
+            </div>
+            <div class="col-sm-8 ">
+                <input type="text" placeholder="Nhập vào mật khẩu"style="width: 420px;">
+            </div>
+            <div class="col-sm-1">
+                <span style="color: red;">*</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Nhập lại mật khẩu:</p>
+            </div>
+            <div class="col-sm-8 ">
+                <input type="text" placeholder="Nhập vào txác nhập mật khẩu"style="width: 420px;">
+            </div>
+            <div class="col-sm-1">
+                <span style="color: red;">*</span>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <h4>THÔNG TIN CÁ NHÂN</h4>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Họ và tên:</p>
+            </div>
+            <div class="col-sm-8 ">
+                <input type="text" placeholder="Nhập vào họ tên (bắt buộc nhập)"style="width: 420px;">
+            </div>
+            <div class="col-sm-1">
+                <span style="color: red;">*</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Ngày sinh:</p>
+            </div>
+            <div class="col-sm-9 text-left">
+                <input type="date" name="txtdate" id="ngayThang">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Giới tính:</p>
+            </div>
+            <div class="col-sm-9 text-left">
+                <input type="radio" class="gioitinh">Nam
+                <input type="radio" class="gioitinh">Nữ
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Địa chỉ:</p>
+            </div>
+            <div class="col-sm-9 ">
+                <input type="text" placeholder="Nhập vào địa chỉ"style="width: 420px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Điện thoại:</p>
+            </div>
+            <div class="col-sm-9 ">
+                <input type="text" placeholder="Nhập vào số điện thoại (9-10 số)"style="width: 420px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 text-right">
+                <p>Email:</p>
+            </div>
+            <div class="col-sm-9 ">
+                <input type="text" placeholder="Nhập vào email cá nhân theo dạng ten@tencaongty.com"style="width: 420px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-right">
+                <button class="btn btn-dark">Đăng ký</button>
+            </div>
+            <div class="col-sm-6 text-left">
+                <button class="btn btn-dark"">Hủy</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
